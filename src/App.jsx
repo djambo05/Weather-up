@@ -16,10 +16,12 @@ const App = () => {
     .then(response => response.json())
     .then(result => setResult(result))
   }
+  const [city, setCity] = useState("")
   return (
     <div className="container">
       <div className="textfield">
-        <TextField id="outlined-basic" label="Outlined" variant="outlined" color="success" />
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" color="success" 
+        onChange={(e) => {setCity(e.target.value)}}/>
       </div>
       <div className="button">
         <Button variant="contained" onClick={push}>Contained</Button>
@@ -29,6 +31,7 @@ const App = () => {
       </div>
       <div>
         <Alert severity='info'>{result.name}</Alert>
+        {city}
       </div>
     </div>
   );
